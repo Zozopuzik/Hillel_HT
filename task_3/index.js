@@ -47,10 +47,10 @@ switch (userBirthMonth) {
 
 //leap year calculation
 if(userBirthYear % 400 === 0 || (userBirthYear % 100 !=0 && (userBirthYear - userBirthYear % 100) % 4 ===0 ) ){
-    alert(`User Bio: ${userName} ${userSurname}, ${currentYear - userBirthYear} years old (leap year), ${zodiak}`)
+    document.write(`User Bio: ${userName} ${userSurname}, ${currentYear - userBirthYear} years old (leap year), ${zodiak}`)
 }
 else{
-    alert(`User Bio: ${userName} ${userSurname}, ${currentYear - userBirthYear} years old, ${zodiak}`)
+    document.write(`User Bio: ${userName} ${userSurname}, ${currentYear - userBirthYear} years old, ${zodiak}`)
 }
 
 
