@@ -11,7 +11,7 @@ function containsUppercase(str) {
 //checker functions
 // start end checking
 let startEndChecker = (email) =>{
-    if(email.startsWith === ' ' || email.startsWith.charCodeAt === 64 ||  email.endsWith === ' ' || email.endsWith.chartCodeAt === 64){
+    if(email.startsWith(' ') || email.startsWith('@') ||  email.endsWith(' ')  || email.endsWith('@')){
         error += 'It is "@" or space in the begining or in the end of your email \n'
         userDidMistakes = true 
     }
@@ -115,6 +115,7 @@ let check = (email, password) =>{
     email = prompt('Enter your email')
     password = prompt('Enter your password')
     userDidMistakes = false
+    error = ''
     console.clear()
     startEndChecker(email)
     atSymbolChecker(email)
