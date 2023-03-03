@@ -50,9 +50,6 @@ class Vegetable{
     }
 
 }
-const tomato = new Vegetable(vegetables[0])
-const carrot = new Vegetable(vegetables[1])
-const corn = new Vegetable(vegetables[2])
-tomato.getInfo()
-carrot.getInfo()
-corn.getInfo()
+
+vegetables.forEach(vegetable => new Vegetable(vegetable).getInfo());
+
