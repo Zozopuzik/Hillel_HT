@@ -1,59 +1,66 @@
+const SINGL_LIST_HEAD = {
+    value: 0,
+    next: null
+  }
+  
+const DEFAULT_PARAMETRS = [1, 'two', () => console.log('hello'), true];
+  
+  function singlListCreator(DEFAULT_PARAMETRS){
+    function addTolist(value) {
+    const newNode = { value, next: null };
+    let currentNode = SINGL_LIST_HEAD;
+    while (currentNode.next !== null) {
+      currentNode = currentNode.next;
+    }
+    currentNode.next = newNode;
+  }
+  DEFAULT_PARAMETRS.forEach(value => addTolist(value));
+}
+// singlListCreator(DEFAULT_PARAMETRS) 
 
 
-function singleList(lengthOfList, value, valueIterator){
-    let listOfObjects = []
-    class Obj{
-        constructor(){
-            this.value = value
-        }
+  const DOUBLE_LIST_HEAD = {
+    value: 0,
+    next: null,
+    prev: null
+  }
+  
+  function doubleListCreator(DEFAULT_PARAMETRS) {
+    function addTolist(value){
+    const newNode = { value, next: null, prev: null };
+    let currentNode = DOUBLE_LIST_HEAD;
+    while (currentNode.next !== null) {
+      currentNode = currentNode.next;
     }
-    for(i = 0; i < lengthOfList; i++){
-        let obj = new Obj(value)
-        listOfObjects.push(obj)
-        value = value + valueIterator
+    currentNode.next = newNode;
+    newNode.prev = currentNode;
+  }
+  DEFAULT_PARAMETRS.forEach(value => addTolist(value));
+}
+// doubleListCreator(DEFAULT_PARAMETRS) 
+
+const CIRCLE_LIST_HEAD = {
+    value: 0,
+    next: null
+  }
+function circleListCreator(DEFAULT_PARAMETRS){
+    function addTolist(value) {
+    const newNode = { value, next: null };
+    let currentNode = CIRCLE_LIST_HEAD;
+    while (currentNode.next !== null) {
+      currentNode = currentNode.next;
     }
-    for(i = 0; i < listOfObjects.length; i++){
-         i != listOfObjects.length - 1 ? listOfObjects[i].next = listOfObjects[i+1] : listOfObjects[i].next = null
-    }
-    console.log(listOfObjects)
+    currentNode.next = newNode;
+  }
+  function findTale(CIRCLE_LIST_HEAD){
+    let currentNode = CIRCLE_LIST_HEAD
+    while (currentNode.next !== null) {
+        currentNode = currentNode.next;
+      }
+      currentNode.next = CIRCLE_LIST_HEAD
+  }
+  DEFAULT_PARAMETRS.forEach(value => addTolist(value));
+  findTale(CIRCLE_LIST_HEAD)
 }
 
-function doubleList(lengthOfList, value, valueIterator){
-    let listOfObjects = []
-    class Obj{
-        constructor(){
-            this.value = value
-        }
-    }
-    for(i = 0; i < lengthOfList; i++){
-        let obj = new Obj(value)
-        listOfObjects.push(obj)
-        value = value + valueIterator
-    }
-    for(i = 0; i < listOfObjects.length; i++){
-         i != listOfObjects.length - 1 ? listOfObjects[i].next = listOfObjects[i+1] : listOfObjects[i].next = null
-         i != 0 ? listOfObjects[i].prev = listOfObjects[i-1] : listOfObjects[i].prev = null
-    }
-    console.log(listOfObjects)
-}
-
-function circleList(lengthOfList, value, valueIterator){
-    let listOfObjects = []
-    class Obj{
-        constructor(){
-            this.value = value
-        }
-    }
-    for(i = 0; i < lengthOfList; i++){
-        let obj = new Obj(value)
-        listOfObjects.push(obj)
-        value = value + valueIterator
-    }
-    for(i = 0; i < listOfObjects.length; i++){
-         i != listOfObjects.length - 1 ? listOfObjects[i].next = listOfObjects[i+1] : listOfObjects[i].next = listOfObjects[0]
-    }
-    console.log(listOfObjects)
-}
-singleList(3, 5, 2)
-doubleList(3, 5, 2)
-circleList(3, 5, 2)
+// circleListCreator(DEFAULT_PARAMETRS)
