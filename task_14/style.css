@@ -1,0 +1,23 @@
+h1{
+   text-align: center;
+}
+
+.field{
+    width: 500px;
+    height: 500px;
+    border: 2px solid green;
+    margin: auto;
+    background-image: url('assets/texture-grass-field.jpg');
+    background-size: 250px;
+}
+#ball{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: aquamarine;
+    top: 200px;
+    left: 200px;
+    transition: 1s;
+    
+}
