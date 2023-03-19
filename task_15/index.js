@@ -147,8 +147,7 @@ let duck = () => {
 function move(event) {
   if (
     event.key.charCodeAt() === 97 ||
-    event.key === "ArrowLeft" ||
-    event.key.charCodeAt() === 65
+    event.key === "ArrowLeft" 
   ) {
     shift("left");
   } else if (
