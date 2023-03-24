@@ -1,8 +1,22 @@
-// Setting variables
-let size = "";
-let stuffing = "";
-let hamburger;
-class Hamburger {
+class Calculator {
+  calculateCalories (){
+    let calSum = this.size.calories + this.stuffing.calories;
+    if (this.topping) {
+      calSum += this.topping.calories;
+    }
+    this.calSum = calSum;
+  }
+  
+  calculatePrice (){
+    let priceSum = this.size.price + this.stuffing.price;
+    if (this.topping) {
+      priceSum += this.topping.price;
+    }
+    this.priceSum = priceSum;
+  }
+}
+
+class Hamburger extends Calculator {
   // Sizes
   static SIZE_SMALL = {
     size: "small",
@@ -36,87 +50,32 @@ class Hamburger {
 
   // Toppings
   static TOPPING_MAYO = {
+    topping: "mayo",
     price: 20,
     calories: 5,
   };
 
   static TOPPING_SAUSE = {
+    topping: "sause",
     price: 15,
     calories: 0,
-  };
-
-  constructor(objSize, objFeeling) {
-    if (objSize && objFeeling) {
-      this.size = objSize.size;
-      this.price = objSize.price + objFeeling.price;
-      this.calories = objSize.calories + objFeeling.calories;
+  }; 
+  addToping(topping){
+    if(topping === Hamburger.TOPPING_MAYO){
+      this.topping = Hamburger.TOPPING_MAYO
+    }
+    else{
+      this.topping = Hamburger.TOPPING_SAUSE
     }
   }
-
-  // Methods
-  addTopping(obj_topping) {
-    if (obj_topping === Hamburger.TOPPING_MAYO) {
-      this.price += Hamburger.TOPPING_MAYO.price;
-      this.calories += Hamburger.TOPPING_MAYO.calories;
-    } else {
-      this.price += Hamburger.TOPPING_SAUSE.price;
-      this.calories += Hamburger.TOPPING_SAUSE.calories;
-    }
-  }
-
-  calculateCalories() {
-    return this.calories;
-  }
-
-  calculatePrice() {
-    return this.price;
+  constructor(size, stuffing) {
+    super();
+    this.size = size;
+    this.stuffing = stuffing;
   }
 }
 
-// Functions
-const selectSize = () => {
-  const sizeSelector = document.getElementById("size_select").value;
-  size = sizeSelector;
-  console.log(size);
-};
+let hamburger = new Hamburger(Hamburger.SIZE_BIG, Hamburger.STUFFING_CHEESE);
+hamburger.addToping(Hamburger.TOPPING_MAYO)
 
-const selectStuffing = () => {
-  const stuffingSelector = document.getElementById("filling_select").value;
-  stuffing = stuffingSelector;
-  console.log(stuffing);
-};
-
-const createBurger = () => {
-  let userSize;
-  let userStuffing;
-  const price = document.getElementById("price");
-  const calories = document.getElementById("calories");
-  size === "small"
-    ? (userSize = Hamburger.SIZE_SMALL)
-    : (userSize = Hamburger.SIZE_BIG);
-  if (stuffing === "cheese") {
-    userStuffing = Hamburger.STUFFING_CHEESE;
-  } else if (stuffing === "salad") {
-    userStuffing = Hamburger.STUFFING_SALAD;
-  } else if (stuffing === "potato") {
-    userStuffing = Hamburger.STUFFING_POTATO;
-  }
-
-  hamburger = new Hamburger(userSize, userStuffing);
-
-  price.innerHTML = hamburger.calculatePrice();
-  calories.innerHTML = hamburger.calculateCalories();
-};
-
-const addToping = document.getElementsByClassName("addToping");
-for (let i = 0; i < addToping.length; i++) {
-  addToping[i].addEventListener("click", function () {
-    if (addToping[i].value === "Add Mayo") {
-      hamburger.addTopping(Hamburger.TOPPING_MAYO);
-      price.innerHTML = hamburger.calculatePrice();
-      calories.innerHTML = hamburger.calculateCalories();
-    } else hamburger.addTopping(Hamburger.TOPPING_SAUSE);
-    price.innerHTML = hamburger.calculatePrice();
-    calories.innerHTML = hamburger.calculateCalories();
-  });
-}
+console.log(hamburger, hamburger.calculateCalories(), hamburger.calculatePrice());
