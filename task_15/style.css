@@ -1,0 +1,22 @@
+*{
+margin: 0;
+padding: 0;
+}
+#field{
+    margin-left: 20px;
+    margin-top: 20px;
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background-color: steelblue;
+}
+#block{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: slateblue;
+    transition: 0.2s;
+    margin-top: 250px;
+    margin-left: 250px;
+    text-align: center;
+}
