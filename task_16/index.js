@@ -98,7 +98,6 @@ let getOrderInfo = () =>{
       formData.spices.push(input.value);
     }
   });
-  console.log(formData)
   return formData
 }
 let createUserHamburger = (formData) =>{
@@ -106,12 +105,10 @@ let createUserHamburger = (formData) =>{
   formData.stuffing === 'cheese' ? formData.stuffing = Hamburger.STUFFING_CHEESE : formData.stuffing === 'salad' ? formData.stuffing = Hamburger.STUFFING_SALAD : formData.stuffing = Hamburger.STUFFING_POTATO
   let toppings = [];
   formData.spices.forEach(element => element === 'mayo' ? toppings.push(Hamburger.TOPPING_MAYO) : toppings.push(Hamburger.TOPPING_SAUSE ))
-  console.log(toppings)
   let userBurger = new Hamburger(formData.burgerSize, formData.stuffing)
   toppings.forEach(element => userBurger.addToping(element))
   userBurger.calculateCalories()
   userBurger.calculatePrice()
-  console.log(userBurger)
   return userBurger
 }
 let createOrder = (obj) =>{
@@ -152,7 +149,6 @@ form.addEventListener('submit', function(event) {
   event.preventDefault();
   let formData = getOrderInfo();
  let userBurger = createUserHamburger(formData)
- console.log(userBurger)
   createOrder(userBurger)
   clearForm()
 });
