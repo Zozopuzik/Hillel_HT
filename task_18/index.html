@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content-wrapper">
+            <form class="form">
+                <div class="logo">MSI 2020</div>
+                <div class="heading">Hey!</div>
+                <div class="credo">Let's try to find a joke for you:</div>
+                <fieldset>
+                    <div class="option">
+                        <label class = 'radio-label'>
+                            <input type="radio" name="option" value="random" class="radio">
+                            <div class="radio-checker"></div>
+                            <span class="radio-text">Random</span>
+                        </label>
+                    </div>
+                    <div class="option">
+                        <label class = 'radio-label'>
+                            <input type="radio" name="option" value="categories" class="radio">
+                            <div class="radio-checker"></div>
+                            <span class="radio-text">Categories</span>
+                        </label>
+                        <fieldset>
+                            <div class="categories">
+                                <div class="category">
+                                    
+                                </div>
+                                <label class="category-label">
+                                    <input type="radio" name="category" class ="category" value="animal">
+                                    <span class="category-text">Animal</span>
+                                </label>
+                                <label class="category-label">
+                                    <input type="radio" name="category" class ="category" value="career">
+                                    <span class="category-text">career</span>
+                                </label>
+                                <label class="category-label">
+                                    <input type="radio" name="category" class ="category" value="celebrity">
+                                    <span class="category-text">celebrity</span>
+                                </label>
+                                <label class="category-label">
+                                    <input type="radio" name="category" class ="category" value="dev"> 
+                                    <span class="category-text">dev</span>
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="option search">
+                        <label class = 'radio-label'>
+                            <input type="radio" name="option" value="search" class="radio" id="search">
+                            <div class="radio-checker"></div>
+                            <span class="radio-text">Search</span>
+                        </label>
+                    </div>
+                    <input type="submit" value="Get a joke" class="get-a-joke-btn">
+                </fieldset>
+            </form>
+            <div id="jokes">
+                
+            </div>
+        </div>
+        <div class="favourite-jokes-wrapper">
+            <div class="favourite-heading">Favourite</div>
+        </div>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>
