@@ -101,9 +101,13 @@ let render = (data, destination) => {
   jokeIcon.append(icon);
   icon.src = "assets/images/message.png";
   jokeHeader.className = "joke-header";
-  let jokeid = document.createElement("div");
+  let jokeid = document.createElement("a");
   jokeid.className = "joke-id";
+  jokeid.href = `${data.url}`
+  let link = document.createElement('img')
+  link.src = 'assets/images/link.png'
   jokeid.innerHTML = `ID: ${data.id}`;
+  jokeid.append(link)
   jokeHeader.append(jokeid);
   let heart = document.createElement("img");
   heart.className = "heart";
@@ -137,7 +141,7 @@ let render = (data, destination) => {
 let addToFav = (data) =>{
 let favJokes = document.getElementById('favourite-jokes')
 let favJoke = document.createElement('div')
-favJoke.className = 'joke-wrapper'
+favJoke.className = 'fav-joke-wrapper'
 favJoke.innerHTML = data.HTMLlayout
 favJoke.setAttribute('id', data.id)
 favJokes.append(favJoke)
