@@ -4,7 +4,7 @@ const BASIC_WAY = "https://api.chucknorris.io/jokes/";
 let getDate = (dateString) => {
   const date = new Date(dateString);
   const now = new Date();
-  const diff = (now.getTime() - date.getTime()) / 1000; 
+  const diff = (now.getTime() - date.getTime()) / 1000;
   if (diff < 60) {
     return "just now";
   } else if (diff < 3600) {
@@ -18,6 +18,38 @@ let getDate = (dateString) => {
     return `${days} days ago`;
   }
 };
+//burger menu
+let burger = document.getElementById('burger')
+let fav = document.querySelector('.fav')
+burger.addEventListener('click', ()=> {
+    let lineOne = document.querySelector('.line1')
+    let lineTwo = document.querySelector('.line2')
+    if(burger.checked === true){
+      lineOne.style.transform = 'rotate(45deg)'
+      lineOne.style.marginTop = '7px'
+      lineTwo.style.transform = 'rotate(-45deg)'
+      lineTwo.style.marginTop = '7px'
+      let favJokes = document.getElementById('favourite-jokes')
+      let wrapper = document.querySelector('.wrapper')
+      favJokes.style.marginLeft = '0px'
+      let shading = document.createElement('div')
+      const styles = window.getComputedStyle(wrapper);
+      shading.className = 'shading'
+      shading.style.height = parseFloat(styles.height)
+      wrapper.append(shading)
+    }
+    else{
+      lineOne.style.transform = 'rotate(0deg)'
+      lineOne.style.marginTop = '3px'
+      lineTwo.style.transform = 'rotate(0deg)'
+      lineTwo.style.marginTop = '10px'
+      let favJokes = document.getElementById('favourite-jokes')
+      favJokes.style.marginLeft = '1700px'
+      let shading = document.querySelector('.shading')
+      shading.remove()
+  }
+  
+})
 ///local storage
 
 let getItem = (key) => {
@@ -103,11 +135,11 @@ let render = (data, destination) => {
   jokeHeader.className = "joke-header";
   let jokeid = document.createElement("a");
   jokeid.className = "joke-id";
-  jokeid.href = `${data.url}`
-  let link = document.createElement('img')
-  link.src = 'assets/images/link.png'
+  jokeid.href = `${data.url}`;
+  let link = document.createElement("img");
+  link.src = "assets/images/link.png";
   jokeid.innerHTML = `ID: ${data.id}`;
-  jokeid.append(link)
+  jokeid.append(link);
   jokeHeader.append(jokeid);
   let heart = document.createElement("img");
   heart.className = "heart";
@@ -138,29 +170,34 @@ let render = (data, destination) => {
   joke.append(jokeFooter);
   destination.append(jokeWrapper);
 };
-let addToFav = (data) =>{
-let favJokes = document.getElementById('favourite-jokes')
-let favJoke = document.createElement('div')
-favJoke.className = 'fav-joke-wrapper'
-favJoke.innerHTML = data.HTMLlayout
-favJoke.setAttribute('id', data.id)
-favJokes.append(favJoke)
-let heart =  favJoke.querySelector('.heart')
-heartClick(heart)
-}
-let removeFromFav = (element) =>{
-  let hearts = [...document.querySelectorAll('.heart')]
-  console.log(hearts)
-  hearts.forEach(heart =>{
-    if(heart.getAttribute('jokeid') === element.getAttribute('jokeid') && heart.parentNode.parentNode.parentNode.parentNode.getAttribute('id') === 'favourite-jokes'){
-      heart.parentNode.parentNode.parentNode.remove()
-    }
-    else if (heart.getAttribute('jokeid') === element.getAttribute('jokeid')){
+let addToFav = (data) => {
+  let favJokes = document.getElementById("favourite-jokes");
+  let favJoke = document.createElement("div");
+  favJoke.className = "fav-joke-wrapper";
+  favJoke.innerHTML = data.HTMLlayout;
+  favJoke.setAttribute("id", data.id);
+  favJokes.append(favJoke);
+  let heart = favJoke.querySelector(".heart");
+  heartClick(heart);
+};
+let removeFromFav = (element) => {
+  let hearts = [...document.querySelectorAll(".heart")];
+  console.log(hearts);
+  hearts.forEach((heart) => {
+    if (
+      heart.getAttribute("jokeid") === element.getAttribute("jokeid") &&
+      heart.parentNode.parentNode.parentNode.parentNode.getAttribute("id") ===
+        "favourite-jokes"
+    ) {
+      heart.parentNode.parentNode.parentNode.remove();
+    } else if (
+      heart.getAttribute("jokeid") === element.getAttribute("jokeid")
+    ) {
       heart.src = "assets/images/white-heart.png";
       heart.setAttribute("clicked", "false");
     }
-  })
-}
+  });
+};
 //logic
 let findTheJoke = (value) => {
   switch (value) {
@@ -199,7 +236,7 @@ let heartClick = (element) => {
       let arr = getItem("favJokes");
       arr.push(jokeParametrs);
       setItem("favJokes", arr);
-      addToFav(jokeParametrs)
+      addToFav(jokeParametrs);
     } else {
       element.src = "assets/images/white-heart.png";
       element.setAttribute("clicked", "false");
@@ -208,7 +245,7 @@ let heartClick = (element) => {
         if (arr[i].id === element.getAttribute("jokeid")) {
           arr.splice(i, 1);
           setItem("favJokes", arr);
-          removeFromFav(element)
+          removeFromFav(element);
         }
       }
     }
@@ -243,7 +280,7 @@ form.addEventListener("submit", (event) => {
 window.onload = () => {
   createLocalStorage();
   let arr = getItem("favJokes");
-  if(arr != []){
-    arr.forEach(element => addToFav(element)) 
+  if (arr != []) {
+    arr.forEach((element) => addToFav(element));
   }
 };
