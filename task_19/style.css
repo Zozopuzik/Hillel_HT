@@ -1,0 +1,36 @@
+.container{
+    width: 1000px;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.add-a-hero-form{
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin-left: 350px;
+    background-color: antiquewhite;
+    margin-bottom: 20px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 5px;    
+}
+.heroes-from-api{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+.hero-from-api{
+    width: 200px;
+    height: 200px;
+    background-color: rebeccapurple;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 5px;
+    color: aliceblue;
+}

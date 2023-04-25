@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <form id="form">
+            <label>
+              Имя клиента:
+              <input type="text" name="clientName" required />
+            </label>
+            
+            <label>
+              Размер бургера:
+              <select name="burgerSize" required>
+                <option value="" disabled selected>Выберите размер</option>
+                <option value="small">Маленький</option>
+                <option value="big">Большой</option>
+              </select>
+            </label>
+            
+            <fieldset>
+              <legend>Выбор начинки:</legend>
+              <label>
+                <input type="radio" name="stuffing" value="cheese" required />
+                Сыр
+              </label>
+              
+              <label>
+                <input type="radio" name="stuffing" value="salad" required />
+                Салат
+              </label>
+              
+              <label>
+                <input type="radio" name="stuffing" value="potato" required />
+                Картошка
+              </label>
+            </fieldset>
+            
+            <fieldset>
+              <legend>Выбор специй:</legend>
+              <label>
+                <input type="checkbox" name="spices[]" value="mayo" />
+                Майонез
+              </label>
+              
+              <label>
+                <input type="checkbox" name="spices[]" value="sauce" />
+                Соус
+              </label>
+            </fieldset>
+            
+            <label>
+              Сообщение к заказу:
+              <textarea name="orderMessage" required></textarea>
+            </label>
+            
+            <button type="submit">Отправить заказ</button>
+          </form>
+          <div id="orders">
+            
+          </div>
+
+          <script src="index.js"></script>
+    </div>
+</body>
+</html>
