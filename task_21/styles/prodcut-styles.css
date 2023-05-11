@@ -1,0 +1,73 @@
+.products-wrapper{
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.product-wrapper{
+    width: 300px;
+    height: 400px;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-right: 40px;
+    -webkit-box-shadow: 1px 14px 18px 1px rgba(0,0,0,0.29);
+    -moz-box-shadow: 1px 14px 18px 1px rgba(0,0,0,0.29);
+    box-shadow: 1px 14px 18px 1px rgba(0,0,0,0.29);
+}
+.product-image{
+    width: 200px;
+    height: 200px;
+    margin-left: 50px;
+}
+.price-row{
+    display: flex;
+    flex-direction: row;
+    width: 100px;
+    height: 20px;
+    font-size: 20px;
+    justify-content: space-between;
+}
+.product-old-price{
+    color: silver;
+    text-decoration: line-through;
+}
+.sale-percent{
+    color: white;
+    background-color: darkgreen;
+    border-radius: 3px;
+}
+.product-row{
+    width: 90%;
+    margin-top: 20px;
+    display: flex;
+    margin-left: 5%;
+    flex-direction: row;
+    justify-content: space-between; 
+}
+.actual-price{
+    font-size: 30px;
+    font-weight: bolder;
+}
+.not-in-cart{
+    background-color: darkgreen;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 10px;
+    
+}
+.product-cart{
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
+}
+.in-cart{
+    background-color: red;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 10px;
+}
