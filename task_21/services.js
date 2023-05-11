@@ -64,9 +64,10 @@ export let logIn = () => {
         .then(response => response.json())
         .then(data => {
             addToLocalStorage('loggedUser', data)
+            redirect('index.html')   
         })
 
-        redirect('index.html')    
+ 
 };
 export let removeFromApi = (id) => {
   fetch(`https://634e9f834af5fdff3a625f84.mockapi.io/users/${id}`, {
