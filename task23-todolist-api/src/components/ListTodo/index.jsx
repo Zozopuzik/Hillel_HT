@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
 import './style.css'
 import {deleteTodoFromApi, updateTodoInApi} from '../../service/server'
-import { setLocalStorage, addToLocalStorage, getFromLocalStorage } from '../../localStorage/localStorageFuns.js';
 export default function ListTodo({todos, setTodos}) {
 
     const [edit, setEdit] = useState(null)
     let deteleTodo = (id) =>{
        let newTodos = [...todos].filter(todo => todo.id != id)
        deleteTodoFromApi(id)
-       addToLocalStorage('todos', newTodos)
         setTodos(newTodos)
     }
     let editTodo = (id) =>{
@@ -24,7 +22,6 @@ export default function ListTodo({todos, setTodos}) {
             }
             return todo
         })
-        addToLocalStorage('todos', newTodos)
         setTodos(newTodos)
     }
 
@@ -39,7 +36,6 @@ export default function ListTodo({todos, setTodos}) {
             }
             return todo
         })
-        addToLocalStorage('todos', newTodos)
         setTodos(newTodos)
     }
   return (

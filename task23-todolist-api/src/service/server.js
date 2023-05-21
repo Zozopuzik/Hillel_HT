@@ -1,3 +1,4 @@
+
 export let getDataFromAPI = async (link) =>{
     try {
         const response = await fetch(link);
@@ -7,26 +8,22 @@ export let getDataFromAPI = async (link) =>{
         console.log('Error fetching data:', error);
       }
 }
-export const addToApi = async (newData) => {
+export const addToAPI = async (url, data) => {
   try {
-    const response = await fetch('https://61498bf2035b3600175ba32f.mockapi.io/todo', {
+    const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(newData),
+      body: JSON.stringify(data)
     });
 
-    if (response.ok) {
-      // Creation successful
-      console.log('Item created successfully!');
-      // Perform any necessary actions after successful creation
-    } else {
-      // Handle non-successful response (e.g., server error)
-      console.log('Error creating item:', response.status);
+    if (!response.ok) {
+      throw new Error('Error creating item');
     }
+
+    return response.json();
   } catch (error) {
-    // Handle network or other errors
     console.log('Error creating item:', error);
   }
 };

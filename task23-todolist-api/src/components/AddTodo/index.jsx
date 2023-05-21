@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { setLocalStorage, addToLocalStorage, getFromLocalStorage } from '../../localStorage/localStorageFuns.js';
-import { getDataFromAPI, addToApi } from '../../service/server';
 import './style.css';
 
 export default function AddTodo({ todos, setTodos }) {
@@ -9,39 +7,54 @@ export default function AddTodo({ todos, setTodos }) {
     description: ''
   });
 
-  let saveTitle = (info) => {
-    let newValue = {
-      title: info,
-      description: value.description
-    };
-    setValue(newValue);
-    console.log(newValue);
+  const saveTitle = (info) => {
+    setValue((prevValue) => ({
+      ...prevValue,
+      title: info
+    }));
   };
 
-  let saveDescription = (info) => {
-    let newValue = {
-      title: value.title,
+  const saveDescription = (info) => {
+    setValue((prevValue) => ({
+      ...prevValue,
       description: info
-    };
-    console.log(newValue);
-    setValue(newValue);
+    }));
   };
 
-  let createTodo = () => {
-    let newTodo = {
-      title: value.title,
-      description: value.description,
-      completed: false
+  const createTodo = async () => {
+    if (value.title !== '') {
+      const newTodo = {
+        title: value.title,
+        description: value.description,
+        completed: false
+      };
+
+      try {
+        const response = await fetch('https://61498bf2035b3600175ba32f.mockapi.io/todo', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(newTodo)
+        });
+
+        if (response.ok) {
+          const newData = await response.json();
+          setTodos((prevData) => [...prevData, newData]);
+          setValue({
+            title: '',
+            description: ''
+          });
+        } else {
+          console.log('Error creating item:', response.status);
+        }
+      } catch (error) {
+        console.log('Error creating item:', error);
+      }
+    } else {
+      alert('Please fill in the title');
     }
-    addToApi(newTodo)
-    setLocalStorage('todos', 'https://61498bf2035b3600175ba32f.mockapi.io/todo')
-    let data = getFromLocalStorage('todos')
-    setTodos(data)
-    setValue({
-      title: '',
-      description: ''
-    })
-  }
+  };
 
   return (
     <div className='wrapper'>
