@@ -1,0 +1,45 @@
+.todo-row{
+    display: grid;
+    grid-template-columns: 0.1fr 1fr 1.2fr 0.8fr 0.7fr;
+    width: 80%;
+    padding: 20px 0px;
+    border: 2px solid silver;
+    margin-left: 20px;
+}
+.edit-btn{
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+}
+.save-edition{
+    background-color:darkmagenta;
+    border: none;
+    color: white;
+    margin-left: 10px;
+    padding: 5px 15px;
+}
+.delete-btn{
+    background-color: red;
+    border: none;
+    color: white;
+    margin-left: 10px;
+    padding: 5px 15px;
+}
+.pending{
+    position: relative;
+    width: 100px;
+    text-align: center;
+    background-color:firebrick;
+    color: white;
+}
+.completed{
+    position: relative;
+    width: 100px;
+    text-align: center;
+    background-color:chartreuse;
+    color: white;
+}
+.action{
+    display: flex;
+}
