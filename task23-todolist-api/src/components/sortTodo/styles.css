@@ -1,0 +1,31 @@
+.sort-row{
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.all-btn{
+    width: 200px;
+    height: 50px;
+    color: white;
+    background-color:cadetblue;
+    border:none;
+    border-radius: 20px;
+}
+.pending-btn{
+    width: 200px;
+    height: 50px;
+    color: white;
+    background-color:brown;
+    border:none;
+    border-radius: 10px;
+}
+.completed-btn{
+    width: 200px;
+    height: 50px;
+    color: white;
+    background-color:limegreen;
+    border:none;
+    border-radius: 10px;
+}

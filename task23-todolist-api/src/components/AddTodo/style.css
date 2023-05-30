@@ -1,0 +1,31 @@
+.wrapper{
+    width: 98%;
+    margin-left: 1%;
+    height: auto;
+    border-bottom: 1px solid silver;
+    margin-top: 50px;
+    padding-bottom: 20px;
+}
+.inputs-wrapper{
+    position: relative;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+}
+.add-todo-text{
+    height: 30px;
+    width: 200px;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+.add-todo-btn{
+    width: 150px;
+    color: white;
+    background-color: darkcyan;
+    border: none;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 20px;
+}
