@@ -32,7 +32,7 @@ let updateInApi = (id, updatedData) =>{
         headers: {
             "content-type": "application/json; charset=utf-8"
         },
-        body: JSON.stringify(updatedData)
+        body: JSON.stringify(   )
     })
     .then(response => response.json())
     .then(data => render(data))
