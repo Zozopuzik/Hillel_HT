@@ -4,4 +4,7 @@ export default function Header() {
   return (
     <header>Todo Application</header>
   )
+
+}
+
 }
